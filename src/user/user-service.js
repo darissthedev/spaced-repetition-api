@@ -68,16 +68,16 @@ const UserService = {
       //   ['chat', 'cat', null],
       // ]
       const languageWords = [
-      ['pratica', 'practice', 2],
-      ['ciao', 'hello', 3],
+      ['práctica', 'practice', 2],
+      ['hola', 'hello', 3],
       [ 'casa', 'house', 4],
-      [ 'sviluppatore', 'developer', 5],
-      [ 'tradurre', 'translate', 6],
-      [ 'stupefacente', 'amazing', 7],
-      ['cane', 'dog', 8],
-      ['gatto', 'cat', 9],
-      ['pomodoro','tomato', 10],
-      ['fragola','strawberry', null]
+      [ 'desarrolladora', 'developer', 5],
+      [ 'traducir', 'translate', 6],
+      [ 'asombrosa', 'amazing', 7],
+      ['perra', 'dog', 8],
+      ['gata', 'cat', 9],
+      ['tomate','tomato', 10],
+      ['fresa','strawberry', null]
       ]
 
       const [languageHeadId] = await trx
