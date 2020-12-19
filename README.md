@@ -1,13 +1,17 @@
 # Spaced Repetition API!
+---------------------------------------------------------------------------------
 
 ## Authors: Michelle, Marcus, Zeid
 
+---------------------------------------------------------------------------------
 
 ## Live Demo:
 
 ## Server Repo:
 
 ## Client Repo:
+
+---------------------------------------------------------------------------------
 
 ## About:
 
@@ -16,6 +20,8 @@ Space Repetition Learning tool
 This App uses space repetition method to teach the user a new language. Currently the database is only seeded with Italian words, but can implement with other language by populate it to the database. What is Space Repetition?
 
 Spaced repetition is an evidence-based learning technique that incorporates increasing intervals of time between subsequent review of previously learned material in order to exploit the psychological spacing effect. -- From Wikipedia
+
+---------------------------------------------------------------------------------
 
 ## Local dev setup
 
@@ -37,6 +43,8 @@ env MIGRATION_DB_NAME=spaced-repetition-test npm run migrate
 
 And `npm test` should work at this point
 
+---------------------------------------------------------------------------------
+
 ## Configuring Postgres
 
 For tests involving time to run properly, configure your Postgres database to run in the UTC timezone.
@@ -55,6 +63,7 @@ datestyle = 'iso, mdy'
 timezone = 'UTC'
 #timezone_abbreviations = 'Default'     # Select the set of available time zone
 ```
+---------------------------------------------------------------------------------
 
 ## Scripts
 
@@ -68,6 +77,7 @@ Run the migrations up `npm run migrate`
 
 Run the migrations down `npm run migrate -- 0`
 
+---------------------------------------------------------------------------------
 
 /api/user
 
