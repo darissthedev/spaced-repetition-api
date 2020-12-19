@@ -1,7 +1,7 @@
 # Spaced Repetition API!
 ---------------------------------------------------------------------------------
 
-## Authors: Michelle, Marcus, Zeid
+## Collaborators: Zeid Diez, Michelle LaLonde, Marcus Ridley
 
 ---------------------------------------------------------------------------------
 
