@@ -1,4 +1,21 @@
-# Spaced repetition API!
+# Spaced Repetition API!
+
+## Authors: Michelle, Marcus, Zeid
+
+
+## Live Demo:
+
+## Server Repo:
+
+## Client Repo:
+
+## About:
+
+Space Repetition Learning tool
+
+This App uses space repetition method to teach the user a new language. Currently the database is only seeded with Italian words, but can implement with other language by populate it to the database. What is Space Repetition?
+
+Spaced repetition is an evidence-based learning technique that incorporates increasing intervals of time between subsequent review of previously learned material in order to exploit the psychological spacing effect. -- From Wikipedia
 
 ## Local dev setup
 
