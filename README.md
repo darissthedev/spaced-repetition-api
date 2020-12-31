@@ -4,8 +4,7 @@
 ## Collaborators:
 Zeid Diez,
 Michelle LaLonde,
-Marcus Ridley,
-Dariss Harris
+Marcus Ridley
 
 ---------------------------------------------------------------------------------
 
