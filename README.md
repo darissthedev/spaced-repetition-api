@@ -1,10 +1,12 @@
 # Spaced Repetition API!
+
 ---------------------------------------------------------------------------------
 
 ## Collaborators:
 Zeid Diez,
 Michelle LaLonde,
-Marcus Ridley
+Marcus Ridley,
+Dariss Harris
 
 ---------------------------------------------------------------------------------
 
