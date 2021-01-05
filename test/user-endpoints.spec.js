@@ -172,21 +172,40 @@ describe('User Endpoints', function () {
           name: 'test name',
         }
         const expectedList = {
-          name: 'Italian',
+          name: 'Spanish',
           total_score: 0,
           words: [
-            { original: 'pratica', translation: 'practice' },
-            { original: 'ciao', translation: 'hello' },
-            { original: 'casa', translation: 'house' },
-            { original: 'sviluppatore', translation: 'developer' },
-            { original: 'tradurre', translation: 'translate' },
-            { original: 'stupefacente', translation: 'amazing' },
-            { original: 'cane', translation: 'dog' },
-            { original: 'gatto', translation: 'cat' },
-            { original: 'pomodoro', translation: 'tomato' },
-            { original: 'fragola', translation:'strawberry' },
-          ]
-        }
+            { original: 'práctica', translation: 'practice'},
+            { original: 'hola', translation: 'hello'},
+            { original: 'casa', translation: 'house'},
+            { original: 'desarrolladora', translation: 'developer'},
+            { original: 'traducir', translation: 'translate'},
+            { original: 'asombrosa', translation: 'amazing'},
+            { original: 'perra', translation: 'dog'},
+            { original: 'feliz', translation:'happy'},
+            { original: 'jugar', translation: 'gamble'},
+            { original: 'computadora', translation: 'computer'},
+            { original: 'flores', translation: 'flowers'},
+            { original: 'tocar', translation: 'play'},
+            { original: 'amor', translation: 'love'},
+            { original: 'divertida', translation:'fun'},
+            { original: 'baño', translation:'bathroom'},
+            { original: 'trabajo', translation: 'work'},
+            { original: 'dinero', translation: 'money'},
+            { original: 'dormir', translation: 'sleep'},
+            { original: 'luna', translation: 'moon'},
+            { original: 'estrellas', translation: 'stars'},
+            { original: 'avión', translation: 'airplane'},
+            { original: 'caminata', translation: 'hike'},
+            { original: 'navegar', translation: 'surf'},
+            { original: 'por favor', translation: 'please'},
+            { original: 'gracias', translation: 'thank you'},
+            { original: 'ayuda', translation: 'help'},
+            { original: 'fuego', translation: 'fire'},
+            { original: 'película', translation: 'movie'},
+            { original: 'gata', translation: 'cat'}
+          ],
+        };
         return supertest(app)
           .post('/api/user')
           .send(newUser)
