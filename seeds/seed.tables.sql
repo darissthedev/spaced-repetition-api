@@ -28,7 +28,28 @@ VALUES
   (5, 1, 'traducir', 'translate', 6),
   (6, 1, 'asombrosa', 'amazing', 7),
   (7, 1, 'perra', 'dog', 8),
-  (8, 1, 'gata', 'cat', null);
+  (8, 1, 'feliz', 'happy', 9),
+  (9, 1, 'jugar', 'gamble', 10),
+  (10, 1, 'computadora', 'computer', 11),
+  (11, 1, 'flores', 'flowers', 12),
+  (12, 1, 'tocar', 'play', 13),
+  (13, 1, 'amor', 'love', 14),
+  (14, 1, 'divertida', 'fun', 15),
+  (15, 1, 'baño', 'bathroom', 16),
+  (16, 1, 'trabajo', 'work', 17),
+  (17, 1, 'dinero', 'money', 18),
+  (18, 1, 'dormir', 'sleep', 19),
+  (19, 1, 'luna', 'moon', 20),
+  (20, 1, 'estrellas', 'stars', 21),
+  (21, 1, 'avión', 'airplane', 22),
+  (22, 1, 'caminata', 'hike', 23),
+  (23, 1, 'navegar', 'surf', 24),
+  (24, 1, 'por favor', 'please', 25),
+  (25, 1, 'gracias', 'thank you', 26),
+  (26, 1, 'ayuda', 'help', 27),
+  (27, 1, 'fuego', 'fire', 28),
+  (28, 1, 'película', 'movie', 29),
+  (29, 1, 'gata', 'cat', null);
 
 UPDATE "language" SET head = 1 WHERE id = 1;
 
