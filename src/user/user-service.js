@@ -49,9 +49,6 @@ const UserService = {
           { name: 'Spanish', user_id },
         ], ['id'])
 
-      // when inserting words,
-      // we need to know the current sequence number
-      // so that we can set the `next` field of the linked language
       const seq = await db
         .from('word_id_seq')
         .select('last_value')
@@ -60,15 +57,34 @@ const UserService = {
       const languageWords = [
       ['práctica', 'practice', 2],
       ['hola', 'hello', 3],
-      [ 'casa', 'house', 4],
-      [ 'desarrolladora', 'developer', 5],
-      [ 'traducir', 'translate', 6],
-      [ 'asombrosa', 'amazing', 7],
+      ['casa', 'house', 4],
+      ['desarrolladora', 'developer', 5],
+      ['traducir', 'translate', 6],
+      ['asombrosa', 'amazing', 7],
       ['perra', 'dog', 8],
-      ['gata', 'cat', 9],
-      ['tomate','tomato', 10],
-      ['fresa','strawberry', null]
-      ]
+      ['feliz', 'happy', 9],
+      ['jugar', 'gamble', 10],
+      ['computadora', 'computer', 11],
+      ['flores', 'flowers', 12],
+      ['tocar', 'play', 13],
+      ['amor', 'love', 14],
+      ['divertida', 'fun', 15],
+      ['baño', 'bathroom', 16],
+      ['trabajo', 'work', 17],
+      ['dinero', 'money', 18],
+      ['dormir', 'sleep', 19],
+      ['luna', 'moon', 20],
+      ['estrellas', 'stars', 21],
+      ['avión', 'airplane', 22],
+      ['caminata', 'hike', 23],
+      ['navegar', 'surf', 24],
+      ['por favor', 'please', 25],
+      ['gracias', 'thank you', 26],
+      ['ayuda', 'help', 27],
+      ['fuego', 'fire', 28],
+      ['película', 'movie', 29],
+      ['gata', 'cat', null],
+      ];
 
       const [languageHeadId] = await trx
         .into('word')
@@ -93,4 +109,4 @@ const UserService = {
   },
 }
 
-module.exports = UserService
+module.exports = UserService;
