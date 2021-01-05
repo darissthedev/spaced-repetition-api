@@ -11,7 +11,6 @@ class _Node {
     }
   
     insertFirst(item) {
-      // Create a new _Node and point the head to the new node
       this.head = new _Node(item, this.head)
     }
   
@@ -29,7 +28,6 @@ class _Node {
     }
   
     find(item) {
-      // We start at the head
       let currNode = this.head
       if(!this.head) return null
   
@@ -47,7 +45,6 @@ class _Node {
         return
       }
       let currNode = this.head
-      // Keep track of the previous
       let previousNode = this.head
   
       while ((currNode !== null) && (currNode.value !== item)) {
@@ -60,4 +57,33 @@ class _Node {
       }
       previousNode = currNode.next
     }
+    
+    shiftFirstItem(spaces) {
+      if(!this.head) return null
+      if (!this.head.next) return this.head
+      if(spaces === 0) return
+      let temp = this.head
+      this.head = this.head.next
+      let currNode = this.head
+      let count = 1
+      while(count < spaces) {
+        if(currNode.next === null) {
+          currNode.next = this.head
+        }
+        currNode = currNode.next
+        count++
+      }
+      let tail = currNode.next
+      currNode.next = temp
+      currNode.next.next = tail
+    }
   }
+  
+  const sll = new LinkedList() 
+  sll.insertLast(1)
+  sll.insertLast(2)
+  sll.insertLast(3)
+  sll.insertLast(4)
+  sll.insertLast(5)
+  sll.shiftFirstItem(5)
+  module.exports = LinkedList 
