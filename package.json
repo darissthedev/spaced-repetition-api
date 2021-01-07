@@ -9,6 +9,7 @@
     "migrate": "postgrator --config postgrator-config.js",
     "migrate:production": "heroku run npm run migrate",
     "start": "node src/server.js",
+    "migrate:test": "env NODE_ENV=test npm run migrate",
     "predeploy": "npm audit",
     "deploy": "git push heroku master",
     "postdeploy": "npm run migrate:production"
