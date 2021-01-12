@@ -4,18 +4,15 @@
 ---------------------------------------------------------------------------------
 
 ## Collaborators:
-Zeid Diez,
+
 Michelle LaLonde,
-Marcus Ridley,
 Dariss Harris
 
 ---------------------------------------------------------------------------------
 
-## Live Demo:
+## Live Demo: https://spaced-repetition-navy.vercel.app/register
 
-## Server Repo:
-
-## Client Repo:
+## Client Repo: https://github.com/mismyl123/spaced-repetition
 
 ---------------------------------------------------------------------------------
 
