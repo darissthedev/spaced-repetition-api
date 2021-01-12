@@ -1,102 +1,96 @@
-const { LinkedList } = require("..//linkedlist/linkedlist");
+const SLL = require('../../LL')
 
 const LanguageService = {
   getUsersLanguage(db, user_id) {
     return db
-      .from("language")
+      .from('language')
       .select(
-        "language.id",
-        "language.name",
-        "language.user_id",
-        "language.head",
-        "language.total_score"
+        'language.id',
+        'language.name',
+        'language.user_id',
+        'language.head',
+        'language.total_score',
       )
-      .where("language.user_id", user_id)
-      .first();
+      .where('language.user_id', user_id)
+      .first()
   },
 
   getLanguageWords(db, language_id) {
     return db
-      .from("word")
+      .from('word')
       .select(
-        "id",
-        "language_id",
-        "original",
-        "translation",
-        "next",
-        "memory_value",
-        "correct_count",
-        "incorrect_count"
+        'id',
+        'language_id',
+        'original',
+        'translation',
+        'next',
+        'memory_value',
+        'correct_count',
+        'incorrect_count',
       )
-      .where({ language_id });
-  },
-  getNextWord(db, language_id) {
-    return db
-      .from("word")
-      .join("language", "word.id", "=", "language.head")
-      .select("original", "language_id", "correct_count", "incorrect_count")
-      .where({ language_id });
-  },
-  checkGuess(db, language_id) {
-    return db
-      .from("word")
-      .join("language", "word.id", "=", "language.head")
-      .select("*")
-      .where({ language_id });
+      .where({ language_id })
   },
 
-  getHead(db, language_id) {
-    return db
-      .from("language")
-      .join("word", "word.language_id", "=", "language.id")
-      .select("head")
-      .where({ language_id });
-  },
-  generateLinkedList(words, head) {
-    const currentHead = words.find((word) => word.id === head);
-    const headNodeIdx = words.indexOf(currentHead);
-    const headNode = words.splice(headNodeIdx, 1);
-    const list = new LinkedList();
-    list.insertLast(headNode[0]);
-
-    let nextIdx = headNode[0].next;
-    let currentWord = words.find((word) => word.id === nextIdx);
-    list.insertLast(currentWord);
-    nextIdx = currentWord.next;
-    currentWord = words.find((word) => word.id === nextIdx);
-
-    //generates list via loop given current db
-    while (currentWord !== null) {
-      list.insertLast(currentWord);
-      nextIdx = currentWord.next;
-      if (nextIdx === null) {
-        currentWord = null;
-      } else {
-        currentWord = words.find((word) => word.id === nextIdx);
-      }
+  serializeWord(word, language) {
+    return {
+      nextWord: word.original,
+      totalScore: language.total_score,
+      wordCorrectCount: word.correct_count,
+      wordIncorrectCount: word.incorrect_count
     }
-    return list;
   },
-  updateTables(db, words, language_id, total_score) {
-    return db.transaction(async (trx) => {
-      return Promise.all([
-        trx("language")
-          .where({ id: language_id })
-          .update({ head: words[0].id, total_score }),
-        //Map through and provide an update to each individual word table in the db
-        ...words.map((word, i) => {
-          if (i + 1 >= words.length) {
-            word.next = null;
-          } else {
-            word.next = words[i + 1].id;
-          }
-          return trx("word")
-            .where({ id: word.id })
-            .update({ ...word });
-        }),
-      ]);
-    });
+  getWord(db, id) {
+    return db
+      .from('word')
+      .select(
+        'id',
+        'language_id',
+        'original',
+        'correct_count',
+        'incorrect_count',
+        'memory_value',
+        'translation',
+        'next'
+      )
+      .where({ id })
   },
-};
+  serializeGuessResponse(word, language, correct) {
+    return {
+      nextWord: language.head,
+      wordCorrectCount: word.correct_count,
+      wordIncorrectCount: word.incorrect_count,
+      totalScore: language.total_score,
+      answer: word.original,
+      isCorrect: correct
+    }
+  },
+  updateWord(db, id, correct_count, incorrect_count, memory_value,next){
+    return db('word')
+    .where({ id })
+    .update({
+      correct_count,
+      memory_value,
+      incorrect_count,
+      next
+    }).returning('*')
+  },
+  updateNext(db, id, next){
+    return db('word')
+    .where({ id })
+    .update({
+      next
+    })
+    .returning('*')
+  },
+  updateScore(db, user_id, total_score, head){
+    return db('language')
+      .where({ user_id })
+      .update({
+        total_score,
+        head
+      })
+      .returning('*')
+  }
+}
 
-module.exports = LanguageService;
+module.exports = LanguageService
