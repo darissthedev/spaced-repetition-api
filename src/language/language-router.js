@@ -32,7 +32,6 @@ languageRouter.get("/", async (req, res, next) => {
       req.language.id
     );
 
-<<<<<<< HEAD
     res.json({
       language: req.language,
       words,
@@ -42,26 +41,6 @@ languageRouter.get("/", async (req, res, next) => {
     next(error);
   }
 });
-=======
-languageRouter
-  .get('/head', async (req, res, next) => {
-    try {
-      const language = await LanguageService.getUsersLanguage(
-        req.app.get('db'),
-        req.user.id,
-      )
-      const firstWord = await LanguageService.getWord(
-        req.app.get('db'),
-        language.head
-      )
-      res.json(LanguageService.serializeWord(firstWord[0], language))
-      
-      next()
-    } catch (error){
-      next(error)
-    }
-  })
->>>>>>> revertbranch
 
 languageRouter.get("/head", async (req, res, next) => {
   try {
