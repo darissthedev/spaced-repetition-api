@@ -19,6 +19,9 @@ app.use(helmet())
 app.use('/api/auth', authRouter)
 app.use('/api/language', languageRouter)
 app.use('/api/user', userRouter)
+app.get("/", (req, res) => {
+  res.json("Base route testing");
+});
 
 app.use(errorHandler)
 

@@ -90,3 +90,4 @@ class _Node {
   sll.insertLast(5)
   sll.shiftFirstItem(5)
   module.exports = LinkedList
+

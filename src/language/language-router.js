@@ -1,7 +1,7 @@
 const express = require('express')
 const LanguageService = require('./language-service')
 const { requireAuth } = require('../middleware/jwt-auth')
-// const LinkedList = require('./Linked-List')
+const LinkedList = require('./linked-list-router')
 const languageRouter = express.Router()
 const jsonBodyParser = express.json()
 
@@ -104,7 +104,7 @@ languageRouter
       
       let a = words.find(w => w.id = language.head)
         if (a.next ===null){
-        let idx = a.id-10
+        let idx = a.id-29
         let nums = [idx+1,idx+2,idx+3,idx+4,idx+5,idx+6,idx+7,idx+8,idx+9,idx+10,idx+11,idx+12,idx+13,idx+14,idx+15,idx+16,idx+17,idx+18,idx+19,idx+20,idx+21,idx+22,idx+23,idx+24,idx+25,idx+26,idx+27,idx+28,idx+29]
         words.forEach(w => nums=nums.filter(a => a!=w.next))
         a.next = nums[0]
@@ -156,9 +156,6 @@ languageRouter
           await LanguageService.updateWord(db, language.head, correct_count, incorrect_count, memory_value, word.next)
         }
         
-      
-      
-      
       let word2 = await LanguageService.getWord(
         req.app.get('db'),
         word.next
